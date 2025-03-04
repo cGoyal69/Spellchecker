@@ -22,35 +22,33 @@ english_words = list(load_words())
 word_search  = input("Enter the word: ")
 words_to_search = list(set(word_search.split()))
 correct_Guess = {}
-n = len(words_to_search)
 
  
 def findAlternates(word):
-    correct_Guess = []
+    c_Guess = []
     w = word
     for i in range(len(word)):
-        w = strAssignment_star(w, i)
+        w = strAssignment_star(word, i)
         for check_word in english_words:
             if re.search(w, check_word):
-                correct_Guess.append(check_word)
-        w = word
-        return correct_Guess
+                c_Guess.append(check_word)
+    return c_Guess
 
 for word in words_to_search:
     correct_Guess[word] = findAlternates(word)
-    
-def freqMatcher(word, correct_guess):
+
+def freqMatcher(correct_guess):
     freqCheck = {}
     # print(correct_Guess)
-    for word in correct_Guess.keys():
-        for wording in correct_Guess[word]:
+    for word in correct_guess.keys():
+        for wording in correct_guess[word]:
             if wording in freqCheck.keys():
                 freqCheck[wording]+=1
             else:
                 freqCheck[wording] = 1
     return freqCheck
 
-freqCheck = freqMatcher(word, )
+freqCheck = freqMatcher(correct_Guess)
 
 probWords = {}
 with open("corpusCheck/mycsvfile.csv", "r+") as f:
@@ -59,4 +57,4 @@ with open("corpusCheck/mycsvfile.csv", "r+") as f:
         if lines[0] in freqCheck.keys():
             probWords[lines[0]] = lines[1]
     
-print(probWords)
+print(freqCheck, probWords)

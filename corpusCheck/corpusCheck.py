@@ -3,10 +3,10 @@ import string
 import csv
 import matplotlib.pyplot as plt
 from os.path import isfile, join
-onlyfiles = [f for f in listdir("C:/Users/Harsh/Desktop/Brown-Corpus/corpusCheck") if
-             isfile(join("C:/Users/Harsh/Desktop/Brown-Corpus/corpusCheck", f))]
+onlyfiles = [f for f in listdir("C:/Users/Harsh/Desktop/Spellchecker/corpusCheck") if
+             isfile(join("C:/Users/Harsh/Desktop/Spellchecker/corpusCheck", f))]
 
-file_not_toRead = ["main.py", ".DS_Store", "mycsvfile.csv", "bible.txt"]
+file_not_toRead = ["main.py", ".DS_Store", "mycsvfile.csv"]
 
 
 
